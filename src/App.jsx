@@ -1,12 +1,11 @@
-import { useState } from 'react'
+import Home from './components/Home'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-     <h1 className='font-bold text-3xl text-red-500'>Hi Naveen</h1>
-    </>
+    <div className='p-5 mt-24 mx-auto max-w-screen-lg'>
+      <Home />
+    </div>
   )
 }
 
