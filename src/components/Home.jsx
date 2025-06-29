@@ -1,7 +1,7 @@
 const Home = ({ formData, handleFormData, handleSubmit, editIndex }) => {
   return (
-    <div className="bg-green-400 text-white">
-      <h1 className="text-3xl font-bold text-center">Task {editIndex === null ? "Create" : "Edit"}</h1>
+    <div className="bg-gray-400 text-black">
+      <h1 className="text-3xl font-bold text-center pt-5">Task {editIndex === null ? "Create" : "Edit"}</h1>
       <form className="p-5 items-center" onSubmit={handleSubmit}>
         <div className="flex space-x-4 py-2 px-4">
           <div className="space-x-5">
@@ -27,7 +27,7 @@ const Home = ({ formData, handleFormData, handleSubmit, editIndex }) => {
         </div>
         <div className="text-center mt-10">
           <button
-            className="bg-yellow-600 py-2 px-4 rounded-lg text-xl font-bold hover:bg-orange-700 transition"
+            className="bg-yellow-600 text-white py-2 px-4 rounded-lg text-xl font-bold hover:bg-orange-700 transition"
             type="submit"
           >
             {editIndex === null ? "Add Task" : "Edit Task"}

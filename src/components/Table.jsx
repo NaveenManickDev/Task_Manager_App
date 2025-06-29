@@ -23,7 +23,7 @@ const Table = ({ tableData, handleEdit, handleDelete }) => {
     <div>
       <table className="w-full border mt-6">
         <thead>
-          <tr className="bg-gray-300">
+          <tr className="bg-pink-400">
             <th className="border p-0">S.No</th>
             <th className="border p-2">Task</th>
             <th className="border p-2">Description</th>
