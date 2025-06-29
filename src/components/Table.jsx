@@ -24,6 +24,7 @@ const Table = ({ tableData, handleEdit, handleDelete }) => {
       <table className="w-full border mt-6">
         <thead>
           <tr className="bg-gray-300">
+            <th className="border p-0">S.No</th>
             <th className="border p-2">Task</th>
             <th className="border p-2">Description</th>
             <th className="border p-2">Actions</th>
@@ -32,6 +33,9 @@ const Table = ({ tableData, handleEdit, handleDelete }) => {
         <tbody>
           {currentRows.map((data, index) => (
             <tr key={indexOfFirstRow + index} className="text-xl text-center">
+              <td className="border border-gray-300 px-2 py-2">
+                {indexOfFirstRow + index + 1}
+              </td>
               <td className="border border-gray-300 px-4 py-2">{data.task}</td>
               <td className="border border-gray-300 px-4 py-2">{data.description}</td>
               <td className="border border-gray-300 px-4 py-2 flex justify-evenly">
@@ -52,7 +56,7 @@ const Table = ({ tableData, handleEdit, handleDelete }) => {
           ))}
           {currentRows.length === 0 && (
             <tr>
-              <td colSpan="3" className="text-center py-4">
+              <td colSpan="4" className="text-center py-4">
                 No tasks found.
               </td>
             </tr>

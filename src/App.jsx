@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Create from "./components/Create";
 import TaskList from "./components/TaskList";
 
@@ -30,45 +30,10 @@ function App() {
             />
           }
         />
+        <Route path="*" element={<Navigate to={"/home"}/>}/>
       </Routes>
     </BrowserRouter>
   );
 }
 
 export default App;
-
-
-// import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import { useState } from "react";
-// import TaskList from "./components/TaskList";
-// import Create from "./components/Create";
-
-// function App() {
-//   const [tasks, setTasks] = useState([]); // ✅ main task data lives here
-
-//   return (
-//     <BrowserRouter>
-//       <Routes>
-//         <Route
-//           path="/tasklist"
-//           element={
-//             <TaskList
-//               tableData={tasks}
-//             />
-//           }
-//         />
-//         <Route
-//           path="/create"
-//           element={
-//             <Create
-//               tableData={tasks}
-//               setTableData={setTasks}
-//             />
-//           }
-//         />
-//       </Routes>
-//     </BrowserRouter>
-//   );
-// }
-
-// export default App;
