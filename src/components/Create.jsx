@@ -1,68 +1,95 @@
-import { useState } from 'react'
-import Home from './Home'
-import Table from './Table'
+import { useNavigate } from "react-router-dom";
+import Home from "./Home";
 
-function Create() {
+function Create({
+  tableData,
+  setTableData,
+  formData,
+  setFormData,
+  editIndex,
+  setEditIndex
+}) {
+  const navigate = useNavigate();
+  const initialFormData = { task: "", description: "" };
 
-  const initialFormData = {
-    task:"",
-    description:""
-  }
-
-  const [formData, setFormData] = useState(initialFormData)
-  const [tableData, setTableData] = useState([])
-  const [editIndex, setEditIndex] = useState(null)
-
-  const handleFormData = (key, value) =>{
-      // console.log({key, value});
-
-      setFormData({
-        ...formData,
-        [key]:value
-      })      
-  }
+  const handleFormData = (key, value) => {
+    setFormData({
+      ...formData,
+      [key]: value
+    });
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    // console.log("Form Submited", formData);
+    e.preventDefault();
+
     if (editIndex === null) {
-      setTableData([...tableData, formData]) 
-    
-      setFormData(initialFormData)
-
-    } else{
-      tableData[editIndex] = formData
-      setFormData(initialFormData)
-      setTableData(tableData)
-      setEditIndex(null)
+      setTableData([...tableData, formData]);
+    } else {
+      const updated = [...tableData];
+      updated[editIndex] = formData;
+      setTableData(updated);
     }
-    // console.log("Form Data Changed", {formData, tableData});
-    
-  }
-  
-  const handleEdit = (index) => {
-    // console.log("Edit clicked", index);
 
-    const clickedItem = tableData[index]
-    setFormData(clickedItem)
-    setEditIndex(index)
-    
-  }
+    setFormData(initialFormData);
+    setEditIndex(null);
 
-  const handleDelete = (index) => {
-    tableData.splice(index,1)
-
-    setTableData([...tableData])
-  }
+    navigate("/home");
+  };
 
   return (
-    <div className='p-5 mt-24 mx-auto max-w-screen-lg'>
-      <Home handleFormData={handleFormData} handleSubmit={handleSubmit} formData={formData}
-      editIndex={editIndex}/>
-      <Table tableData={tableData} handleEdit={handleEdit} handleDelete={handleDelete}/>
+    <div className="p-5 mt-24 mx-auto max-w-screen-lg">
+      <Home
+        handleFormData={handleFormData} handleSubmit={handleSubmit} formData={formData}
+        editIndex={editIndex}
+      />
     </div>
-    
-  )
+  );
 }
 
-export default Create
+export default Create;
+
+
+// import { useState } from "react";
+// import { useNavigate } from "react-router-dom";
+// import Home from "./Home";
+
+// function Create({ tableData, setTableData }) {
+//   const initialFormData = { task: "", description: "" };
+//   const [formData, setFormData] = useState(initialFormData);
+//   const [editIndex, setEditIndex] = useState(null);
+//   const navigate = useNavigate();
+
+//   const handleFormData = (key, value) => {
+//     setFormData({
+//       ...formData,
+//       [key]: value,
+//     });
+//   };
+
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     if (editIndex === null) {
+//       setTableData([...tableData, formData]);
+//     } else {
+//       const updated = [...tableData];
+//       updated[editIndex] = formData;
+//       setTableData(updated);
+//       setEditIndex(null);
+//     }
+//     setFormData(initialFormData);
+//     navigate("/"); // ✅ after submit, go back to TaskList
+//   };
+
+//   return (
+//     <div className="p-5 mt-24 mx-auto max-w-screen-lg">
+//       <Home
+//         handleFormData={handleFormData}
+//         handleSubmit={handleSubmit}
+//         formData={formData}
+//         editIndex={editIndex}
+//       />
+//     </div>
+//   );
+// }
+
+// export default Create;
