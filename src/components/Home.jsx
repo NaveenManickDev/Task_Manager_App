@@ -1,11 +1,11 @@
 const Home = ({ formData, handleFormData, handleSubmit, editIndex }) => {
   return (
     <div className="bg-gray-400 text-black">
-      <h1 className="text-3xl font-bold text-center pt-5">Task {editIndex === null ? "Create" : "Edit"}</h1>
+      <h1 className="text-3xl font-bold text-center pt-5">Task </h1>
       <form className="p-5 items-center" onSubmit={handleSubmit}>
         <div className="flex space-x-4 py-2 px-4">
           <div className="space-x-5">
-            <label className="text-2xl font-bold">Title</label>
+            <label className="text-xl font-bold">Title</label>
             <input
               className="border border-gray-600 text-xl font-bold text-black p-2 rounded-lg"
               type="text"
@@ -15,7 +15,7 @@ const Home = ({ formData, handleFormData, handleSubmit, editIndex }) => {
             />
           </div>
           <div className="space-x-5">
-            <label className="text-2xl font-bold">Description</label>
+            <label className="text-xl font-bold">Description</label>
             <input
               className="border border-gray-600 text-xl font-bold text-black p-2 rounded-lg"
               type="text"

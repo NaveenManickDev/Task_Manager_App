@@ -26,7 +26,7 @@ const TaskList = ({ tableData, setTableData, setFormData, setEditIndex }) => {
 
   return (
     <div className="bg-gray-400 text-white p-5 mt-24 mx-auto max-w-screen-lg">
-      <h1 className="text-3xl font-bold text-center">Task List</h1>
+      <h1 className="text-3xl font-bold text-center">Task Manager</h1>
       <div className="flex justify-between p-5 items-center">
         <div className="space-x-4 py-2 px-4">
           <label className="text-2xl font-bold">Search</label>
